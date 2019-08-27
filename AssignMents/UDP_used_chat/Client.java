@@ -2,15 +2,22 @@ package UDP_used_chat;
 
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 
 public class Client {
     public static byte buf[] = new byte[1024];
-    public static int cport = 222,sport=555;
+    public static int cport = 2222,sport=5555;
     public static void main(String[] args) throws IOException {
-        DatagramSocket ClientSC=new DatagramSocket(cport);
+        
+        Scanner input =new Scanner(System.in);
+        System.out.print("Please Enter server Ip Address:");
+        String serverIp=input.next();
+
         DatagramPacket dpC=new DatagramPacket(buf, buf.length);
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
-        InetAddress ia=InetAddress.getLocalHost();
+        InetAddress ia=InetAddress.getByName(serverIp);
+        DatagramSocket ClientSC=new DatagramSocket(cport);
+
         System.out.println("Client Started");
         System.out.println("Type some text if u want");
         while (true){

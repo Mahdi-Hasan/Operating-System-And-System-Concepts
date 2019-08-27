@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Server {
     public static byte buf[] = new byte[1024];
-    public static int cport = 222,sport=555;
+    public static int cport = 2222,sport=5555;
     public static void main(String[] args) throws IOException {
         DatagramSocket ServerSC=new DatagramSocket(sport);
         DatagramPacket dpS=new DatagramPacket(buf, buf.length);
